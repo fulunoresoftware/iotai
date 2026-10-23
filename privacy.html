@@ -105,8 +105,8 @@
       <p>API keys are stored in the operating system credential vault (Windows Credential Manager). They are not shown back in the interface and are not written to logs.</p>
 
       <h3>3. X account connection</h3>
-      <p>When you connect an X account, IOT-Ai uses X OAuth 2.0. X returns an access token and, if you grant offline access, a refresh token. These tokens are used only to perform the actions you request, such as publishing, scheduling, and reading your own account data.</p>
-      <p>In desktop-only mode, tokens remain in the operating system credential vault. If you use server-assisted features, tokens are stored encrypted on our servers and are never sent back to the desktop interface. Tokens are not written to logs and are removed when you disconnect the account.</p>
+      <p>When you connect an X account, you are taken to X's secure authorization screen. IOT-Ai receives permission to act only for the actions you request, such as publishing, scheduling, and reading your own account data.</p>
+      <p>Authorization data is stored securely. It is never displayed in the app or written to logs, and it is removed when you disconnect the account.</p>
 
       <h3>4. AI providers</h3>
       <p>You connect AI providers with your own API keys. When you trigger generation, the selected source text and your instructions are sent to the provider you chose. Those requests are governed by that provider's privacy terms. IOT-Ai does not send data to AI providers unless you trigger an action.</p>
@@ -151,8 +151,8 @@
       <p>API anahtarları işletim sisteminin kimlik bilgisi kasasında (Windows Credential Manager) saklanır. Arayüze geri gösterilmez ve loglara yazılmaz.</p>
 
       <h3>3. X hesabı bağlantısı</h3>
-      <p>Bir X hesabı bağladığınızda IOT-Ai, X OAuth 2.0 kullanır. X bir erişim tokenı ve çevrimdışı erişim izni verirseniz bir yenileme tokenı döndürür. Bu tokenlar yalnızca sizin talep ettiğiniz paylaşım, zamanlama ve kendi hesap verilerinizi okuma gibi işlemler için kullanılır.</p>
-      <p>Yalnızca masaüstü modunda tokenlar işletim sisteminin kimlik bilgisi kasasında kalır. Sunucu destekli özellikleri kullanırsanız tokenlar sunucularımızda şifreli olarak saklanır ve masaüstü arayüzüne geri gönderilmez. Tokenlar loglara yazılmaz; hesabı kaldırdığınızda silinir.</p>
+      <p>Bir X hesabı bağladığınızda X'in güvenli izin ekranına yönlendirilirsiniz. IOT-Ai yalnızca sizin talep ettiğiniz paylaşım, zamanlama ve kendi hesap verilerinizi okuma gibi işlemler için izin alır.</p>
+      <p>Yetkilendirme verileri güvenli biçimde saklanır. Uygulamada gösterilmez, loglara yazılmaz ve hesabı kaldırdığınızda silinir.</p>
 
       <h3>4. Yapay zeka sağlayıcıları</h3>
       <p>Yapay zeka sağlayıcılarına kendi API anahtarlarınızla bağlanırsınız. Üretimi tetiklediğinizde seçilen kaynak metin ve talimatlarınız seçtiğiniz sağlayıcıya gönderilir. Bu istekler ilgili sağlayıcının gizlilik koşullarına tabidir. IOT-Ai, siz bir işlem başlatmadıkça yapay zeka sağlayıcılarına veri göndermez.</p>

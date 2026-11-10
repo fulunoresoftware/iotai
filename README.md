@@ -2,6 +2,10 @@
 
 Static website for IOT-Ai, an AI content generation and automation engine for X.
 
+## Live site
+
+**https://fulunoresoftware.github.io/iotai/**
+
 - `index.html`: product landing page
 - `privacy.html`: Turkish and English privacy policy
 - `terms.html`: Turkish and English terms of service

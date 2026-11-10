@@ -151,60 +151,36 @@
         radial-gradient(ellipse at 50% 44%, rgba(77, 163, 255, 0.14), transparent 42%),
         radial-gradient(ellipse at 50% 50%, #0c1729 0%, #080d17 72%);
     }
-    .hex-field {
-      position: absolute; inset: -30px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'%3E%3Cpath d='M28 1 53 15v30L28 59 3 45V15Z' fill='none' stroke='%234da3ff' stroke-opacity='.18'/%3E%3Cpath d='M28 49 53 63v30L28 107 3 93V63Z' fill='none' stroke='%234da3ff' stroke-opacity='.18'/%3E%3C/svg%3E");
-      background-size: 56px 96px;
-      mask-image: radial-gradient(ellipse at center, #000 12%, transparent 76%);
-      -webkit-mask-image: radial-gradient(ellipse at center, #000 12%, transparent 76%);
+    .honey-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+    .stage-status {
+      position: absolute; z-index: 4; left: 18px; top: 16px;
+      display: inline-flex; align-items: center; gap: 7px;
+      border: 1px solid rgba(77, 163, 255, 0.26); border-radius: 999px;
+      padding: 5px 10px; background: rgba(8, 13, 23, 0.62);
+      color: #9dccff; font-size: 9px; font-weight: 800;
+      letter-spacing: 0.07em; text-transform: uppercase;
     }
-    .hex-cell {
-      position: absolute; width: 48px; height: 56px;
-      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-      background: linear-gradient(160deg, rgba(77, 163, 255, 0.22), rgba(77, 163, 255, 0.06));
-      border: 1px solid rgba(77, 163, 255, 0.25);
-      filter: drop-shadow(0 0 10px rgba(77, 163, 255, 0.22));
-      animation: hex-pulse 3.6s ease-in-out infinite;
+    .stage-status .dot { width: 6px; height: 6px; }
+    .power-dial {
+      position: absolute; z-index: 5; left: 50%; bottom: 20px; transform: translateX(-50%);
+      width: 64px; height: 64px; border-radius: 50%;
+      display: grid; place-items: center;
+      border: 1px solid rgba(125, 211, 252, 0.75);
+      background: radial-gradient(circle at 35% 25%, #7dd3fc, #2f81f7 42%, #103b78 100%);
+      color: #eff8ff; font-size: 26px; font-weight: 700;
+      box-shadow: 0 0 0 7px rgba(47, 129, 247, 0.08), 0 0 35px rgba(47, 129, 247, 0.5), 0 12px 30px rgba(0, 0, 0, 0.4);
     }
-    .hc-1 { left: 24%; top: 18%; animation-delay: -0.4s; }
-    .hc-2 { left: 35%; top: 9%; animation-delay: -1.2s; }
-    .hc-3 { left: 63%; top: 16%; animation-delay: -2.1s; }
-    .hc-4 { left: 72%; top: 31%; animation-delay: -0.9s; }
-    .hc-5 { left: 20%; top: 38%; animation-delay: -2.8s; }
-    .hc-6 { left: 70%; top: 62%; animation-delay: -1.7s; }
-    .hc-7 { left: 27%; top: 68%; animation-delay: -2.4s; }
-    .hc-8 { left: 45%; top: 76%; animation-delay: -0.2s; }
-    @keyframes hex-pulse {
-      0%, 100% { opacity: 0.38; filter: drop-shadow(0 0 6px rgba(77, 163, 255, 0.12)); }
-      50% { opacity: 0.95; filter: drop-shadow(0 0 18px rgba(77, 163, 255, 0.42)); }
+    .power-dial::before {
+      content: ""; position: absolute; inset: -16px; border-radius: 50%;
+      border: 1px solid rgba(77, 163, 255, 0.18);
     }
-    .stage-core { position: relative; z-index: 2; text-align: center; }
-    .core-ring {
-      position: absolute; left: 50%; top: 50%; width: 168px; height: 168px;
-      transform: translate(-50%, -50%); border-radius: 50%;
-      border: 1px solid rgba(77, 163, 255, 0.3);
-      box-shadow: 0 0 45px rgba(47, 129, 247, 0.2), inset 0 0 35px rgba(47, 129, 247, 0.08);
-    }
-    .core-ring::before, .core-ring::after {
-      content: ""; position: absolute; inset: 13px; border-radius: 50%;
-      border: 1px solid rgba(77, 163, 255, 0.16);
-    }
-    .core-ring::after { inset: 28px; border-color: rgba(77, 163, 255, 0.1); }
-    .core-mark {
-      position: relative; z-index: 3; width: 78px; height: 78px; margin: 0 auto 12px;
-      border-radius: 24px; display: grid; place-items: center;
-      background: linear-gradient(145deg, #6ee7ff, var(--blue) 45%, #6d5cff);
-      color: #06101f; font-size: 34px; font-weight: 900;
-      box-shadow: 0 0 45px rgba(77, 163, 255, 0.45), 0 12px 32px rgba(0, 0, 0, 0.45);
-    }
-    .core-title { position: relative; z-index: 3; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
-    .core-status {
-      position: relative; z-index: 3; display: inline-flex; align-items: center; gap: 7px;
-      margin-top: 7px; color: #9dccff; font-size: 10px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
+    .power-label {
+      position: absolute; z-index: 5; left: 50%; bottom: 94px; transform: translateX(-50%);
+      color: #8ea4bf; font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; white-space: nowrap;
     }
     .stage-card {
-      position: absolute; z-index: 4; left: 7%; bottom: 9%; width: 190px;
+      position: absolute; z-index: 4; left: 6%; bottom: 9%; width: 190px;
       border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 13px; padding: 11px 13px;
       background: rgba(8, 13, 23, 0.82); backdrop-filter: blur(10px);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
@@ -236,8 +212,7 @@
       .nav { min-height: 62px; }
       .app-shell { min-height: 0; }
       .honey-stage { min-height: 330px; }
-      .stage-card { left: 4%; bottom: 5%; width: 160px; }
-      .core-ring { width: 140px; height: 140px; }
+      .stage-card { left: auto; right: 4%; top: 12px; bottom: auto; width: 140px; }
     }
   </style>
 </head>
@@ -293,21 +268,10 @@
               <span class="rail-item"><span class="rail-icon">⚙</span><small>Settings</small></span>
             </aside>
             <div class="honey-stage">
-              <div class="hex-field" aria-hidden="true"></div>
-              <span class="hex-cell hc-1" aria-hidden="true"></span>
-              <span class="hex-cell hc-2" aria-hidden="true"></span>
-              <span class="hex-cell hc-3" aria-hidden="true"></span>
-              <span class="hex-cell hc-4" aria-hidden="true"></span>
-              <span class="hex-cell hc-5" aria-hidden="true"></span>
-              <span class="hex-cell hc-6" aria-hidden="true"></span>
-              <span class="hex-cell hc-7" aria-hidden="true"></span>
-              <span class="hex-cell hc-8" aria-hidden="true"></span>
-              <div class="stage-core">
-                <div class="core-ring" aria-hidden="true"></div>
-                <div class="core-mark">i</div>
-                <div class="core-title">IOT-Ai</div>
-                <div class="core-status"><span class="dot" aria-hidden="true"></span> System ready</div>
-              </div>
+              <canvas id="honeyCanvas" class="honey-canvas" aria-hidden="true"></canvas>
+              <span class="stage-status"><span class="dot" aria-hidden="true"></span> System ready</span>
+              <span class="power-label">Power</span>
+              <div class="power-dial" aria-hidden="true">⏻</div>
               <div class="stage-card">
                 <span>Next task</span>
                 <strong>00:12:44</strong>
@@ -411,5 +375,99 @@
       <p class="legal">X is a trademark of X Corp. IOT-Ai is an independent product and is not affiliated with X Corp. Microsoft and Microsoft Store are trademarks of Microsoft Corporation.</p>
     </div>
   </footer>
+  <script>
+    (() => {
+      const canvas = document.getElementById('honeyCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const stage = canvas.parentElement;
+      const R = 18;
+      const HEX_W = R * Math.sqrt(3);
+      const HEX_H = R * 1.5;
+      let hexes = [];
+      let width = 0;
+      let height = 0;
+      let dpr = 1;
+      let last = 0;
+
+      function build() {
+        const rect = stage.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        hexes = [];
+        const cols = Math.ceil(width / HEX_W) + 2;
+        const rows = Math.ceil(height / HEX_H) + 2;
+        for (let row = 0; row < rows; row++) {
+          const shift = row % 2 ? HEX_W / 2 : 0;
+          for (let col = 0; col < cols; col++) {
+            hexes.push({ x: col * HEX_W + shift - 3, y: row * HEX_H + (R - 12), row, col });
+          }
+        }
+      }
+
+      function path(h) {
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+          const a = (Math.PI / 3) * i - Math.PI / 6;
+          const x = h.x + R * Math.cos(a);
+          const y = h.y + R * Math.sin(a);
+          i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+        }
+        ctx.closePath();
+      }
+
+      function draw(now) {
+        if (!width) { requestAnimationFrame(draw); return; }
+        if (now - last < 50) { requestAnimationFrame(draw); return; }
+        last = now;
+        const t = now / 1000;
+        ctx.clearRect(0, 0, width, height);
+
+        const glow = ctx.createRadialGradient(width / 2, height * 0.48, 0, width / 2, height * 0.48, Math.max(width, height) * 0.55);
+        glow.addColorStop(0, 'rgba(77,163,255,0.12)');
+        glow.addColorStop(0.55, 'rgba(77,163,255,0.025)');
+        glow.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.lineWidth = 1.2;
+        ctx.strokeStyle = 'rgba(96,165,250,0.16)';
+        for (const h of hexes) { path(h); ctx.stroke(); }
+
+        const active = Math.min(9, hexes.length);
+        for (let i = 0; i < active; i++) {
+          const h = hexes[(i * 37 + Math.floor(t * 0.35)) % hexes.length];
+          const alpha = 0.22 + 0.22 * Math.sin(t * 1.4 + i * 0.9);
+          ctx.save();
+          ctx.strokeStyle = `rgba(96,165,250,${alpha})`;
+          ctx.lineWidth = 1.7;
+          ctx.shadowColor = 'rgba(77,163,255,0.55)';
+          ctx.shadowBlur = 24;
+          path(h);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // Vignette: honeycomb dissolves at the edges, like the app canvas.
+        const vig = ctx.createRadialGradient(width / 2, height / 2, Math.min(width, height) * 0.2, width / 2, height / 2, Math.max(width, height) * 0.7);
+        vig.addColorStop(0, 'rgba(0,0,0,0)');
+        vig.addColorStop(1, 'rgba(8,13,23,0.7)');
+        ctx.fillStyle = vig;
+        ctx.fillRect(0, 0, width, height);
+
+        requestAnimationFrame(draw);
+      }
+
+      build();
+      new ResizeObserver(build).observe(stage);
+      requestAnimationFrame(draw);
+    })();
+  </script>
 </body>
 </html>
